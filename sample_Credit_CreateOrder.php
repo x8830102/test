@@ -19,7 +19,7 @@
 
         //基本參數(請依系統規劃自行調整)
         $MerchantTradeNo = "Test".time() ;
-        $obj->Send['ReturnURL']         = "61.56.93.166/test/sample_Credit_CreateOrder.php" ;    //付款完成通知回傳的網址
+        $obj->Send['ReturnURL']         = "http://61.56.93.166/test/receive.php" ;    //付款完成通知回傳的網址
         $obj->Send['MerchantTradeNo']   = $MerchantTradeNo;                          //訂單編號
         $obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                       //交易時間
         $obj->Send['TotalAmount']       = 2000;                                      //交易金額
