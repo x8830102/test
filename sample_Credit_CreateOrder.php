@@ -20,13 +20,14 @@
         //基本參數(請依系統規劃自行調整)
         $MerchantTradeNo = "Test".time() ;
         $obj->Send['ReturnURL']         = "http://61.56.93.166/test/receive.php" ;    //付款完成通知回傳的網址
+        $obj->Send['OrderResultURL'] = "http://61.56.93.166/test/receive.php";
         $obj->Send['MerchantTradeNo']   = $MerchantTradeNo;                          //訂單編號
         $obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                       //交易時間
         $obj->Send['TotalAmount']       = 2000;                                      //交易金額
         $obj->Send['TradeDesc']         = "good to drink" ;                          //交易描述
         $obj->Send['ChoosePayment']     = ECPay_PaymentMethod::Credit ;              //付款方式:Credit
         $obj->Send['DeviceSource'] = "";
-        //訂單的商品資料
+        //訂單的商品資料.
         array_push($obj->Send['Items'], array('Name' => "歐付寶黑芝麻豆漿", 'Price' => (int)"2000",
                    'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "dedwed"));
 
