@@ -7,7 +7,7 @@
     include('ECPay.Payment.Integration.php');
     try {
         
-    	$obj = new ECPay_AllInOne();
+        $obj = new ECPay_AllInOne();
    
         //服務參數
         $obj->ServiceURL  = "https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5";   //服務位置
@@ -19,13 +19,13 @@
 
         //基本參數(請依系統規劃自行調整)
         $MerchantTradeNo = "Test".time() ;
-        $obj->Send['ReturnURL']         = "https://x8830102.github.io/mysite/" ;    //付款完成通知回傳的網址
+        $obj->Send['ReturnURL']         = "61.56.93.166/test/sample_Credit_CreateOrder.php" ;    //付款完成通知回傳的網址
         $obj->Send['MerchantTradeNo']   = $MerchantTradeNo;                          //訂單編號
         $obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                       //交易時間
         $obj->Send['TotalAmount']       = 2000;                                      //交易金額
         $obj->Send['TradeDesc']         = "good to drink" ;                          //交易描述
         $obj->Send['ChoosePayment']     = ECPay_PaymentMethod::Credit ;              //付款方式:Credit
-		$obj->Send['DeviceSource'] = "";
+        $obj->Send['DeviceSource'] = "";
         //訂單的商品資料
         array_push($obj->Send['Items'], array('Name' => "歐付寶黑芝麻豆漿", 'Price' => (int)"2000",
                    'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "dedwed"));
@@ -36,14 +36,14 @@
         //$obj->SendExtend['CreditInstallment'] = '3' ;    //分期期數，預設0(不分期)，信用卡分期可用參數為:3,6,12,18,24
         //$obj->SendExtend['Redeem'] = false ;           //是否使用紅利折抵，預設false
         //$obj->SendExtend['UnionPay'] = false;          //是否為聯營卡，預設false;
-		//$obj->SendExtend['Language'] = 'ENG' ; 
-		$obj->Send['NeedExtraPaidInfo'] = ECPay_ExtraPaymentInfo::Yes;
-		$obj->Send['CustomField1'] ="test";
-		$obj->Send['CustomField2'] ="test";
-		$obj->Send['CustomField3'] ="test";
-		$obj->Send['CustomField4'] ="test";
-		$obj->SendExtend['BindingCard'] = '1';
-		$obj->SendExtend['MerchantMemberID'] ='2000132test1234' ;
+        //$obj->SendExtend['Language'] = 'ENG' ; 
+        $obj->Send['NeedExtraPaidInfo'] = ECPay_ExtraPaymentInfo::Yes;
+        $obj->Send['CustomField1'] ="test";
+        $obj->Send['CustomField2'] ="test";
+        $obj->Send['CustomField3'] ="test";
+        $obj->Send['CustomField4'] ="test";
+        $obj->SendExtend['BindingCard'] = '1';
+        $obj->SendExtend['MerchantMemberID'] ='2000132test1234' ;
         //Credit信用卡定期定額付款延伸參數(可依系統需求選擇是否代入)
         //以下參數不可以跟信用卡分期付款參數一起設定
         // $obj->SendExtend['PeriodAmount'] = '' ;    //每次授權金額，預設空字串
@@ -77,7 +77,7 @@
 
     
     } catch (Exception $e) {
-    	echo $e->getMessage();
+        echo $e->getMessage();
     } 
 
 
